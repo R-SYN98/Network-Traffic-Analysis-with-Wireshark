@@ -1,9 +1,9 @@
 # Network-Traffic-Analysis-with-Wireshark
-A write up on my journey to understand how to analyse network traffic with packet sniffers.
+A write up on my journey to understand how to analyse network traffic with packet sniffers. 
 
 
 # Objective
-The objective of this project was to help me understand packet analysis and to document my understanding of how to use packet sniffers (mainly wireshark) to detect possible malicious activity on a network.
+The objective of this project was to help me understand packet analysis and to document my understanding of how to use packet sniffers (mainly wireshark) to detect possible malicious activity on a network. I will first do a write up breaking down the wireshark GUI and packet analysis and then I will then document a analysis of a malicous pcap file sourced from www.malware-traffic-analysis.net.
 
 # Introduction
 
@@ -26,7 +26,22 @@ For example.
 
 (host 192.168.1.1 and not port 22) will only capture traffic from the host 192.168.1.1 but ignore any traffic coming through on port 22.
 
+# Breaking down The Wireshark GUI
+
 For this exercise I will first create a pcap file with no filters applied on the eth0 network interface.
 ![pcap](pcap.png)
 
 To create this traffic on the network I did some google searches on both my phone and my host machine. 
+
+Breaking this pcap down is easy, first we have the columns of the wireshark gui, they go as follows.
+<ul>
+  <li>No. = the order of the packets, the newer the packet the higher the number</li>
+  <li>Time = The time when the packet was captured on the pcap file, measured in seconds by default but can be changed under the view menu.</li>
+  <li>Source = the source address of the packet, where it came from</li>
+  <li>Destination = the destination address of the packet, where it's going </li>
+  <li>Protocol = the protocol the packet used</li>
+  <li>Length = The total size of the packet, measured in bytes</li>
+  <li>Info = short summary of the packets data. Can be helpful for filtering or for quick analysis</li>
+</ul>
+
+
