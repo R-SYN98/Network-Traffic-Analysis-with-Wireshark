@@ -68,12 +68,42 @@ This shows the packets being filtered for DNS protocol, here you can get a rough
 For this part I will open a packet from the DNS filters as there it'll be simple to break down compared to TLS.
 ![frame](frame.png)
 
+Here is the packet broken down, its a bit overwhelming but we can break this down a little
+<ul>
+  <li>Frame = information relating to the packet </li>
+  <li>Ethernet II = information about how the frame traveled through the ethernet connection from the router</li>
+  <li>Internet Protocol Version 4 = information about how the packet traveled over IPv4</li>
+  <li>User Datagram Protocol = information about how the packet traveled through the UPD protocol</li>
+  <li>Domain Name System = information in the packet about the DNS</li>
+</ul>
+Below I will also break down important information about each of these sections as there is alot here that isn't as important for an analyist in most situations.
+
 ![frameopen](frameb.png)
+
+Within this section contains information relating to the packet's frame, here the important information to keep in mind are as follows
+
+<ul>
+  <li>Arrival Time = The time when the packet arrived to its destination, goes as Month, Day, Year, Hour, Minute, Second.</li>
+  <li>Frame Length = The size of the frame</li>
+  <li>Protocols in frame = Contains the protocols used in the packet.</li>
+</ul>
 
 ![eth](Eth2.png)
 
+Within the Ethernet section this will display information pertaining to the path used by the frame on the eth0 network interface. On ethernet the addresses will be the MAC addresses but if this was wlan0 it would be 
+
 ![ip](IP.png)
 
+This section describes the information relating to how the packet traveled over the internet. Important parts in this section are as follows.
+<ul>
+  <li>Fragmentation Offset = shows if the packet has been broken up into multiple packets, the flags section helps with refragmenting the frames</li>
+  <li>Time to live = The amount of time that a packet lives in a network before being dropped. Measured in how many times it passes through a router (hops) </li>
+  <li>Protocol = the protocol used in the frame, in this one it is UDP</li>
+  <li>Source/Desintation Address = the path taken by the packet</li>
+</ul>
+
 ![udp](udp.png)
+
+This section contains information about the User Datagram Protocol, the main parts that help us are the source port and the destination port.
 
 ![dnspacket](dnsp.png)
