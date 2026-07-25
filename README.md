@@ -5,7 +5,7 @@ A write up on my journey to understand how to analyse network traffic with packe
 # Objective
 The objective of this project was to help me understand packet analysis and to document my understanding of how to use packet sniffers (mainly wireshark) to detect possible malicious activity on a network.
 
-# Write up
+# Introduction
 
 In this project I have ran wireshark within my Kali Linux VM as wireshark comes preinstalled with this disto and I like to keep my cybersecurity work seperate from my host machine. 
 
@@ -28,3 +28,5 @@ For example.
 
 For this exercise I will first create a pcap file with no filters applied on the eth0 network interface.
 ![pcap](pcap.png)
+
+To create this traffic on the network I did some google searches on both my phone and my host machine. 
