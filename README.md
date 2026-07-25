@@ -7,3 +7,7 @@ The objective of this project was to help me understand packet analysis and to d
 
 # Write up
 
+In this project I have ran wireshark within my Kali Linux VM as wireshark comes preinstalled with this disto and I like to keep my cybersecurity work seperate from my host machine. 
+
+To start we open up wireshark and are greated with this screen below
+![Wireshark screen](Screenshot_2026-07-25_07_33_13.png)
