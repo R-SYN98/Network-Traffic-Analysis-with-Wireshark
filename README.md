@@ -31,7 +31,7 @@ For example.
 For this exercise I will first create a pcap file with no filters applied on the eth0 network interface.
 ![pcap](pcap.png)
 
-To create this traffic on the network I did some google searches on both my phone and my host machine. 
+To create this traffic on the network I did some google searches on my VM(note that this would not capture any devices connected to the network as this would only apply to my machine's ethernet connection and I don't have wireshark in promiscuous mode).
 
 Breaking this pcap down is easy, first we have the columns of the wireshark gui, they go as follows.
 <ul>
@@ -51,4 +51,9 @@ Wireshark can also let you add your own custom rules and colour code them, this 
 
 # Breaking down a packet
 
-With wireshark we can open up packets by double clicking on one to analyse them a little deeper. For this section I made a second pcap file where my VM opened youtube and I've used the "http" filter to narrow down the packets.
+With wireshark we can open up packets by double clicking on one to analyse them a little deeper. For this section I made a second pcap file where my VM opened youtube and I've used some filters to narrow down the packets.
+
+![http](http.png)
+
+This has been filtered to show any packets using the http protocol, because youtube is a secured website (HTTPS) we cannot view any data here, the OCSP packets is where the certificate is validated from the website
+
