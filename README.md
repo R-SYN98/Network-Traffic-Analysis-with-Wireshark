@@ -112,4 +112,4 @@ This part of the frame contains the information of the packet, referred to as th
 
 Now I will showcase some packet analysis of some malicous activity on a network. This pcap was sourced from <a href="https://www.malware-traffic-analysis.net/2024/07/30/index.html">This exercise </a>found on Malware-Traffic-Analysis.net
 
-# Packet Anaylsis Write Up
+# Packet Analysis Write Up
