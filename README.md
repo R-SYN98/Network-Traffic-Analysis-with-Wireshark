@@ -13,7 +13,7 @@ To start we open up wireshark and are greated with this screen below
 ![Wireshark screen](
 wiresharkscreen)
 
-This screen is where we choose the perameters of the packet capture ("pcap") before we start the capture. Here we can choose which network device that the pcap will capture traffic from and we can also apply filters to the pcap. some filters include
+This screen is where we choose the perameters of the packet capture ("pcap") before we start the capture. Here we can choose which network interface that the pcap will capture traffic from and we can also apply filters to the pcap. some filters include
 <ul>
   <li>"host" = will capture traffic for a specific ip address, both outgoing and incoming/li>
   <li>"net" = will capture traffic on a specific subnet</li></li>
@@ -25,3 +25,5 @@ you can even combine filters with the terms,"and","or" and "not" to get very spe
 For example.
 
 (host 192.168.1.1 and not port 22) will only capture traffic from the host 192.168.1.1 but ignore any traffic coming through on port 22.
+
+For this exercise I will first create a pcap file with no filters applied on the eth0 network interface.
