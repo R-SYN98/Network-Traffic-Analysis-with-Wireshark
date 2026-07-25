@@ -44,4 +44,11 @@ Breaking this pcap down is easy, first we have the columns of the wireshark gui,
   <li>Info = short summary of the packets data. Can be helpful for filtering or for quick analysis</li>
 </ul>
 
+You will also notice that wireshark also colour codes the packets, this is to help us to quickly differentiate between network traffic types and can help us spot errors. The default ones that come preloaded as as follows.
+![rules](Rules.png)
 
+Wireshark can also let you add your own custom rules and colour code them, this is important for analysists as it can quickly highlight specific behaviours and allow faster response times.
+
+# Breaking down a packet
+
+With wireshark we can open up packets by double clicking on one to analyse them a little deeper. For this section I made a second pcap file where my VM opened youtube and I've used the "http" filter to narrow down the packets.
