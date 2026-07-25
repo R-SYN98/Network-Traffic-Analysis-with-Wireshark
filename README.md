@@ -18,7 +18,7 @@ This screen is where we choose the perameters of the packet capture ("pcap") bef
   <li>"host" = will capture traffic for a specific ip address, both outgoing and incoming/li>
   <li>"net" = will capture traffic on a specific subnet</li></li>
   <li>"port" = captures traffic on specitic ports, you can also filter this further by adding "tcp" or "udp" before port to filter through those specific protocols </li>
-  <li>either</li>
+  <li>"either host" = captures traffic for specific hosts through their mac address instead of their ip</li>
 </ul
 
 you can even combine filters with the terms,"and","or" and "not" to get very specific results on the pcap.
