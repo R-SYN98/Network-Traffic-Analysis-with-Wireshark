@@ -66,3 +66,14 @@ This screenshot shows the packets being filtered for the TLS protocol, this data
 This shows the packets being filtered for DNS protocol, here you can get a rough idea of what the target was searching for from the names that appear in the response packets.
 
 For this part I will open a packet from the DNS filters as there it'll be simple to break down compared to TLS.
+![frame](frame.png)
+
+![frameopen](frameb.png)
+
+![eth](Eth2.png)
+
+![ip](IP.png)
+
+![udp](udp.png)
+
+![dnspacket](dnsp.png)
