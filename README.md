@@ -107,3 +107,9 @@ This section describes the information relating to how the packet traveled over 
 This section contains information about the User Datagram Protocol, the main parts that help us are the source port and the destination port.
 
 ![dnspacket](dnsp.png)
+
+This part of the frame contains the information of the packet, referred to as the body. as you can see within this frame is the response to the request for the "youtube.com" domain back in packet 6941.
+
+Now I will showcase some packet analysis of some malicous activity on a network. This pcap was sourced from <a href="https://www.malware-traffic-analysis.net/2024/07/30/index.html">This exercise </a>found on Malware-Traffic-Analysis.net
+
+# Packet Anaylsis Write Up
