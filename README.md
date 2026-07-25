@@ -1,5 +1,5 @@
 # Network-Traffic-Analysis-with-Wireshark
-A write up on my journey to understand how to analyse network traffic with packet sniffers. 
+A write up on my journey to understand how to analyse network traffic with packet sniffers. Mainly wireshark
 
 
 # Objective
@@ -57,3 +57,12 @@ With wireshark we can open up packets by double clicking on one to analyse them 
 
 This has been filtered to show any packets using the http protocol, because youtube is a secured website (HTTPS) we cannot view any data here, the OCSP packets is where the certificate is validated from the website
 
+![tls](tls.png)
+
+This screenshot shows the packets being filtered for the TLS protocol, this data is encrypted and cannot be viewed unless you have a method of decryption which isn't relivent to this project so I won't document this here. But you can get an idea of searches from packets that contain handshake protocols like the highlighted packet.
+
+![dns](dns.png)
+
+This shows the packets being filtered for DNS protocol, here you can get a rough idea of what the target was searching for from the names that appear in the response packets.
+
+For this part I will open a packet from the DNS filters as there it'll be simple to break down compared to TLS.
