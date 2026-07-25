@@ -27,3 +27,4 @@ For example.
 (host 192.168.1.1 and not port 22) will only capture traffic from the host 192.168.1.1 but ignore any traffic coming through on port 22.
 
 For this exercise I will first create a pcap file with no filters applied on the eth0 network interface.
+![pcap](pcap.png)
