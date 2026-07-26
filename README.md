@@ -178,3 +178,16 @@ We can also see that once the malware was installed onto the computer it called 
 
 <img width="1425" height="148" alt="image" src="https://github.com/user-attachments/assets/8da4566a-afea-46c3-bd7d-4207df332aa9" />
 
+Now we can start looking for some more indicators of compromise, ideally we want to find the attacker's ip address and the port they used following the download of the malware. I used the conversations tab to find anything that looks out of place.
+
+To find connversations you would go to Analyze > Conversations. From there I filtered through the TCP conversations as there isn't anything more I can gather from looking at HTTP. I then order by Bytes. 
+
+<img width="1878" height="837" alt="image" src="https://github.com/user-attachments/assets/6619910c-747a-45a9-8611-ccd247ec9ef8" />
+
+What stands out alot about this selection is that most communication happening on the network is done through port 443 or HTTPS. This string of conversations happened on port 12132 which is abnormal. Researching into this port reveals that this port is commonly used as a command and control (C2) communication channel by the STRRAT malware for Data Exfiltration. So with this we have found out three things
+<ol>
+  <li> The attackers IP is 141.98.10.79</li>
+  <li> The attack is using port 12132 </li>
+  <li> The Malware is STRRAT and is using C2 for Data exfiltration</li>
+</ol>
+
