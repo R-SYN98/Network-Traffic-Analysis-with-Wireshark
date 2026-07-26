@@ -168,15 +168,13 @@ First off we are aware that the incident was about malware being executed on the
 
 With this information a good place to check is the DNS filters.
 
-<img width="1336" height="513" alt="image" src="https://github.com/user-attachments/assets/a6762d99-0c7c-433d-9ed8-d07091d65177" />
+<img width="1870" height="508" alt="image" src="https://github.com/user-attachments/assets/e983a946-288b-4202-8bc3-47c442a04b90" />
 
-As you can see in the image we have Three suspicious querys that have been made, Github, IP-API.com and repo1.maven.org, already this is suspicious behaviour. Now moving on to HTTP as it's good to check for any unsecure network traffic.
+Immedietly you can see there are multiple suspicious queries in this section, The major one being the Github request. especially the object/githubuser/com. Checking the ip address on a website like AbuseIPDB give us confirmation of malicious activity. 
 
-<img width="1203" height="147" alt="image" src="https://github.com/user-attachments/assets/f53da73f-b195-45af-b32f-499d1ba21dc1" />
+<img width="1365" height="893" alt="image" src="https://github.com/user-attachments/assets/bd3bce13-a28c-4cec-ac09-9a1309c577ee" />
 
-In the image we can see that there are only 4 http packets in the pcap. two of which are GET commands that have two files in them, connecttest.txt and a JSON file from the IP-API.com website. The malware isn't here but again these are more signs of suspicious behaviour on the net.
+We can also see that once the malware was installed onto the computer it called out to ip-api.com to geolocate the victims computer. You can see this backed up by filtering through HTTP traffic, you'll see that a JSON file was downloaded from ip-api.
 
-Sadly there wasnt any other files being transfered over HTTP so we haven't found the malware just yet. Next I decided to check any traffic through both SMB and SMB2 protocol. AS there was alot of traffic I used an alternative method by going to File > Export objects and checking there for any file transfers.
-
-<img width="760" height="556" alt="image" src="https://github.com/user-attachments/assets/4047b5d2-2d65-4cd6-8b26-aba168a2b91c" />
+<img width="1425" height="148" alt="image" src="https://github.com/user-attachments/assets/8da4566a-afea-46c3-bd7d-4207df332aa9" />
 
