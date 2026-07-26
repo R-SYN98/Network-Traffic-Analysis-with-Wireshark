@@ -210,3 +210,47 @@ We start this by filtering for traffic relating to the attackers ip address. We'
 
 By default red text means data being sent by source to the destination and blue is vice versa. This text also reveals that the victim sent over their username, the OS running on their pc and the antivirus in use too.
 
+Now we have finished all of this we can do our final report.
+
+# Report
+
+<u>Executive Summary:</u>
+On the 30th of July 2024 at aprox 02:40 UTC, a host used by Clark Collier was infected with STRRAT malware.
+
+<u>Victim Details</u>
+<ul>
+  <li>Host = DESKTOP-SKBR25F</li>
+  <li>IP address = 172.16.1.66</li>
+  <li>MAC address = 00:1e:64:ec:f3:08</li>
+  <li>Username = ccollier</li>
+</ul>
+
+<u>Indicators of Compromise</u>
+
+<u>Outgoing traffic to file sharing domains:</u>
+<ul>
+  <li>02:39:52 github.com - DNS</li>
+  <li>02:39:53 objects.githubusercontent.com - DNS</li>
+  <li>02:39:54 repo1.maven.org - DNS</li>
+</ul>
+
+<u>Suspected Download of Malware:</u>
+<ul>
+  <li>02:39:53 Packet number 1962 - File transfer over TLSv1.2</li>
+</ul>
+
+<u>IP Address check from infected host:</u>
+<ul>
+  <li>02:40:06 GET request sent to ip.api.com - HTTP</li>
+  <li>02:40:07 JSON received from ip.api.com - HTTP</li>
+</ul>
+
+<u>C2 addresses and Post-infection traffic to STRRAT Malware host</u>
+<ul>
+  <li>141.98.10.69:12132 - Details for C2 host</li>
+
+  <li>02:40:05 - packet number 9066- TCP - signs of data exfiltration</li>
+</ul>
+
+
+Thank you for reading my project write up. This has taught me so much about using wireshark and how to better understand indicators of compromise and what to look for when doing network analysis.
