@@ -135,4 +135,27 @@ first I will add some custom rules to wireshark that might be able to help me na
 
 Now that we have set up some custom rules, we can start with analysing the pcap file.
 
-<img width="1528" height="871" alt="portscan" src="https://github.com/user-attachments/assets/ad978fff-5dc7-4fc2-b0fe-22baf43d2041" />
+Our first objective is to identify the source of the attack and the victim. Good filters to check this are the DHCP and the NBNS filters. When using the DHCP filter on this pcap we have no displayed packets so we can try NBNS to get some information.
+<img width="1878" height="1105" alt="nbns" src="https://github.com/user-attachments/assets/0f22848b-0453-42de-b232-3284bdad86e9" />
+From this search we gained some insight into the Who section
+<ol>
+  <li>The victim's ip address is 172.16.1.66 </li>
+  <li>Their mac address is 00:1e:64:ec:f3:08</li>
+  <li>Their host name is DESKTOP-SKBR25F</li>
+</ol>
+
+The only thing we are missing now is the victim's windows account username. we can do this by filtering for kerberos traffic as kerberos is an authentication protocol that is used to verify the identity of a user or host on a windows machine. To filter for this we type kerberos.CNameString and then open a packet. From there we follow the steps taken in the image below and we right click the highlighted section and "apply as a column".
+
+<img width="620" height="393" alt="image" src="https://github.com/user-attachments/assets/aaee8f53-ccb3-4415-9a53-bd1593091f28" />
+
+From doing this we will be greated by this on wireshark.
+
+<img width="1878" height="1105" alt="image" src="https://github.com/user-attachments/assets/2d398a31-621a-4130-b4f0-7ab860bfd9a2" />
+
+Now we have the username of the victim "ccollier", even though it wasnt specified in the challenge I will also find the name of the user as this would be added to a real incident report within a professional setting. Using the Lightweight Directory Access Protocol (ldap) filter we can use the rule (ldap contains "CN=Users") to find the credentials of the user "ccollier". Which displays this on wireshark
+
+<img width="1878" height="1105" alt="image" src="https://github.com/user-attachments/assets/d50cd1eb-72c0-4110-9cbb-f48ee770aed1" />
+
+Now we know that "ccollier" is the username for Clark Collier. And with that we have completed one of the three tasks of this challenge.
+
+Now lets move on to the Executive Summary, or What happened. 
