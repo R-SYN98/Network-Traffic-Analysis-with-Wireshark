@@ -98,13 +98,13 @@ This section describes the information relating to how the packet traveled over 
 <ul>
   <li>Fragmentation Offset = shows if the packet has been broken up into multiple packets, the flags section helps with refragmenting the frames</li>
   <li>Time to live = The amount of time that a packet lives in a network before being dropped. Measured in how many times it passes through a router (hops) </li>
-  <li>Protocol = the protocol used in the frame, in this one it is UDP</li>
+  <li>Protocol = the protocol used in the frame, it shows in this case that the packet used UDP instead of TCP. UDP</li>
   <li>Source/Desintation Address = the path taken by the packet</li>
 </ul>
 
 ![udp](udp.png)
 
-This section contains information about the User Datagram Protocol, the main parts that help us are the source port and the destination port.
+This section contains information about the User Datagram Protocol, the main parts that help us are the source port and the destination port to follow the flow of traffic. If the packet was sent through the TCP protocol then it would show here instead.
 
 ![dnspacket](dnsp.png)
 
@@ -113,3 +113,24 @@ This part of the frame contains the information of the packet, referred to as th
 Now I will showcase some packet analysis of some malicous activity on a network. This pcap was sourced from <a href="https://www.malware-traffic-analysis.net/2024/07/30/index.html">This exercise </a>found on Malware-Traffic-Analysis.net
 
 # Packet Analysis Write Up
+
+For this section I will showcase some packet analysis of some malicous activity on a network. This pcap was sourced from <a href="https://www.malware-traffic-analysis.net/2024/07/30/index.html">This exercise </a>found on Malware-Traffic-Analysis.net
+
+as per this exercise the objectives are as follows
+
+<ol>
+  <li>Summarise what happened during the incident. Breaking down the when, the who and the what hapened.</li>
+  <li>Document the victims details, including their hostname, ip address, Mac Address and their user account name.</li>
+  <li>Document any indicators of compromise present in the pcap, ip addresses, domains and url's accosicated with the malicious activity as well as any extra information like SHA256 hashes if any malware binaries can be extracted.</li>
+</ol> 
+
+first I will add some custom rules to wireshark that might be able to help me narrow the search down a little. <img width="999" height="112" alt="customrules" src="https://github.com/user-attachments/assets/00afc2ed-897d-4081-b173-2bea1928cdaf" />
+<ol>
+  <li>http.file_data matches "^MZ" will highlight and signatures of a windows exec file being ran</li>
+  <li>http.user_agent contains "curl" will show any curl requests on the network</li>
+  <li>tcp.flags.syn == 1 && tcp.flags.ack == 0 makes any potential port scanning traffic more visible as when portscanning the packets sent as a probe will drop once they receieve the syn/ack response from the destination but then will not send back the ack packet to inntiate the connection.</li>
+  <li>http.request.method == "POST" will highlight post requests made in the pcap file</li>
+  <li>http.request will just make any http requests more visible</li>
+</ol>
+
+Now that we have set up some custom rules, we can start with analysing the pcap file.
