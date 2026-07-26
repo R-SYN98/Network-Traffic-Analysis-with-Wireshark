@@ -158,7 +158,7 @@ Now we have the username of the victim "ccollier", even though it wasnt specifie
 
 Now we know that "ccollier" is the username for Clark Collier. And with that we have completed one of the three tasks of this challenge.
 
-Now lets move on to the Executive Summary, or What happened. 
+Now lets move on to the Executive Summary and Indicators of compromise as we can fill in both at the same time while investigating. 
 
 First off we are aware that the incident was about malware being executed on the victims machine, this helps alot in narrowing down our search. Two key things to look out for are.
 <ol>
@@ -170,6 +170,13 @@ With this information a good place to check is the DNS filters.
 
 <img width="1336" height="513" alt="image" src="https://github.com/user-attachments/assets/a6762d99-0c7c-433d-9ed8-d07091d65177" />
 
-As you can see in the image we have two suspicious querys that have been made, Github and IP-API.com, the latter is a website that lets you geo-locate ip addresses. Which already is suspicious behaviour. Now moving on to HTTP as it's good to check for any unsecure network traffic.
+As you can see in the image we have Three suspicious querys that have been made, Github, IP-API.com and repo1.maven.org, already this is suspicious behaviour. Now moving on to HTTP as it's good to check for any unsecure network traffic.
 
 <img width="1203" height="147" alt="image" src="https://github.com/user-attachments/assets/f53da73f-b195-45af-b32f-499d1ba21dc1" />
+
+In the image we can see that there are only 4 http packets in the pcap. two of which are GET commands that have two files in them, connecttest.txt and a JSON file from the IP-API.com website. The malware isn't here but again these are more signs of suspicious behaviour on the net.
+
+Sadly there wasnt any other files being transfered over HTTP so we haven't found the malware just yet. Next I decided to check any traffic through both SMB and SMB2 protocol. AS there was alot of traffic I used an alternative method by going to File > Export objects and checking there for any file transfers.
+
+<img width="760" height="556" alt="image" src="https://github.com/user-attachments/assets/4047b5d2-2d65-4cd6-8b26-aba168a2b91c" />
+
