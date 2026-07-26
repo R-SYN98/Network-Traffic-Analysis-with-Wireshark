@@ -159,3 +159,5 @@ Now we have the username of the victim "ccollier", even though it wasnt specifie
 Now we know that "ccollier" is the username for Clark Collier. And with that we have completed one of the three tasks of this challenge.
 
 Now lets move on to the Executive Summary, or What happened. 
+
+First off we can filter traffic now to the victims ip address with "ip.addr == 172.16.1.66" and we want to look for 
