@@ -1,3 +1,4 @@
+<img width="1877" height="1099" alt="portscan" src="https://github.com/user-attachments/assets/0847277e-caaf-479a-9e2b-08082736b610" />
 <img width="1528" height="871" alt="portscan" src="https://github.com/user-attachments/assets/ad978fff-5dc7-4fc2-b0fe-22baf43d2041" />
 # Network-Traffic-Analysis-with-Wireshark
 A write up on my journey to understand how to analyse network traffic with packet sniffers. Mainly wireshark
