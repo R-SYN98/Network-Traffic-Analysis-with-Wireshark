@@ -15,8 +15,8 @@ wiresharkscreen)
 
 This screen is where we choose the perameters of the packet capture ("pcap") before we start the capture. Here we can choose which network interface that the pcap will capture traffic from and we can also apply filters to the pcap. some filters include
 <ul>
-  <li>"host" = will capture traffic for a specific ip address, both outgoing and incoming/li>
-  <li>"net" = will capture traffic on a specific subnet</li></li>
+  <li>"host" = will capture traffic for a specific ip address, both outgoing and incoming</li>
+  <li>"net" = will capture traffic on a specific subnet</li>
   <li>"port" = captures traffic on specitic ports, you can also filter this further by adding "tcp" or "udp" before port to filter through those specific protocols </li>
   <li>"either host" = captures traffic for specific hosts through their mac address instead of their ip</li>
 </ul>
