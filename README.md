@@ -160,4 +160,16 @@ Now we know that "ccollier" is the username for Clark Collier. And with that we 
 
 Now lets move on to the Executive Summary, or What happened. 
 
-First off we can filter traffic now to the victims ip address with "ip.addr == 172.16.1.66" and we want to look for 
+First off we are aware that the incident was about malware being executed on the victims machine, this helps alot in narrowing down our search. Two key things to look out for are.
+<ol>
+  <li> Weird website traffic from the host, Malware needs to be installed onto a computer and executed to work. We'd look for any traffic that deviates from the baseline of this user</li>
+  <li> Ip checks. Most malware will check the external ip address of the host as well as query other information to send back to the host or to adjust its behaviour within the infected host.</li>
+</ol>
+
+With this information a good place to check is the DNS filters.
+
+<img width="1336" height="513" alt="image" src="https://github.com/user-attachments/assets/a6762d99-0c7c-433d-9ed8-d07091d65177" />
+
+As you can see in the image we have two suspicious querys that have been made, Github and IP-API.com, the latter is a website that lets you geo-locate ip addresses. Which already is suspicious behaviour. Now moving on to HTTP as it's good to check for any unsecure network traffic.
+
+<img width="1203" height="147" alt="image" src="https://github.com/user-attachments/assets/f53da73f-b195-45af-b32f-499d1ba21dc1" />
