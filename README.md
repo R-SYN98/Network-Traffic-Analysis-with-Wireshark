@@ -184,10 +184,29 @@ To find connversations you would go to Analyze > Conversations. From there I fil
 
 <img width="1878" height="837" alt="image" src="https://github.com/user-attachments/assets/6619910c-747a-45a9-8611-ccd247ec9ef8" />
 
-What stands out alot about this selection is that most communication happening on the network is done through port 443 or HTTPS. This string of conversations happened on port 12132 which is abnormal. Researching into this port reveals that this port is commonly used as a command and control (C2) communication channel by the STRRAT malware for Data Exfiltration. So with this we have found out three things
+What stands out alot about this selection is that most communication happening on the network is done through port 443 or HTTPS. This string of conversations happened on port 12132 which is abnormal. Researching into this port reveals that this port is commonly used as a command and control (C2) communication channel by the STRRAT malware for Data Exfiltration. 
+
+To confirm this we will first look for some more signs of the STRRAT malware, on researching into this malware its common for remote access trojans to transmit data as cleartext, so by pushing ctrl+f and searching for the string STRRAT in the packet bytes we get these results.
+
+<img width="1749" height="1105" alt="image" src="https://github.com/user-attachments/assets/f2426a93-0dc5-4c53-a50b-48a4f7da4121" />
+
+As you can see that the destination ip is the suspected attackers and the port again is 12132. If we then follow the tcp stream we get this string of plaintext
+
+<img width="1255" height="1105" alt="image" src="https://github.com/user-attachments/assets/56de365b-c335-4b3e-b988-d0f4dcdc8ad1" />
+
+So with this we have found out three things
 <ol>
   <li> The attackers IP is 141.98.10.79</li>
   <li> The attack is using port 12132 </li>
   <li> The Malware is STRRAT and is using C2 for Data exfiltration</li>
 </ol>
+
+Sadly I am unable to extract any hashes as it seems the file was downloaded over TLS rather than HTTP. Without the encrpytion keys I cannot access this.
+
+Now finally we have to prove that data exfiltration happened during this pcap. 
+We start this by filtering for traffic relating to the attackers ip address. We'd use the filter "ip.addr == 141.98.10.79" to achieve this. Then we click on any of the packets and follow the tcp stream to get the plaintext we had in the previous image.
+
+<img width="1255" height="1105" alt="image" src="https://github.com/user-attachments/assets/5194fb3e-cf9d-4f4d-9a07-746cc39964be" />
+
+By default red text means data being sent by source to the destination and blue is vice versa. This text also reveals that the victim sent over their username, the OS running on their pc and the antivirus in use too.
 
